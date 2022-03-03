@@ -1,0 +1,84 @@
+@model IEnumerable<Turnos.Models.Medico>
+
+@*{
+    Layout = null; esto quita el  layout
+}
+*@
+<div class="content">
+            <div>
+                <a class="btn btn-success float-right" asp-action="Create">
+                    + Alta Nuevo Medico
+                </a>
+                 
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorarioAtencionDesde)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HorarioAtencionHasta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicoEspecialidad[0].Especialidad.descripcion)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorarioAtencionDesde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorarioAtencionHasta)
+            </td>
+            <td>
+                   @Html.DisplayFor(modelItem => item.MedicoEspecialidad[0].Especialidad.descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idMedico">
+                     <img src="~/Img/edit.png" width="45px" height="45px" >
+                </a> 
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.idMedico">
+                        <img src="~/Img/remove.png" width="45px" height="45px" >
+                </a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+                 

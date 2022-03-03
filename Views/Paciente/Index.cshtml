@@ -1,0 +1,88 @@
+@model IEnumerable<Turnos.Models.Pacientes>
+<div class="content">
+            <div>
+                <a class="btn btn-success float-right" asp-action="Create">
+                    + Alta Nuevo Paciente
+                </a>
+                 
+</div>
+    
+ <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Apellido)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Direccion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Telefono)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @*Esto es codigo para comentar en este cshtml*@
+                        @*Aqui cologamos registros de BBDD*@
+                      
+                        @foreach (var item in Model)//model se define arriba, en este caso "especialidad"  <!--TEAMO BOOTSTRAP->
+                        {
+                            <tr>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+
+                                </td>
+                           
+
+                            
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Apellido)
+
+                                </td>
+                                                              
+                            
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Direccion)
+
+                                </td>
+                            
+                           
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+
+                                </td>
+                          
+                           
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.Email)
+
+                                </td>
+                                <td>
+                                   
+                                    <a class="btn" asp-action="Edit" asp-route-id="@item.idPaciente">
+                                        <img src="~/Img/edit.png" width="45px" height="45px" >
+                                    </a> @*este boton es para editar*@
+                                </td>
+                                 <td>
+                                    
+                                    <a class="btn" asp-action="Delete" asp-route-id="@item.idPaciente">
+                                        <img src="~/Img/remove.png" width="45px" height="45px" >
+                                    </a> @*este boton es para eliminar*@
+                                </td>
+
+                            </tr>
+                        }
+                      
+                </tbody>
+            </table>

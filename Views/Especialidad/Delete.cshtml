@@ -1,0 +1,21 @@
+@model Turnos.Models.Especialidad
+
+<h3>Seguro de Eliminar?</h3>
+
+<div>
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(modelo => modelo.descripcion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(modelo => modelo.descripcion)
+        </dd>
+    </dl>
+    <form class="form-group" asp-action="Delete">
+        <input type="hidden" asp-for="idEspecialidad"/>
+        <input class="btn btn-danger" type="submit" value="Eliminar"> 
+    </form>
+    <div>
+       <a class="btn btn-primary" asp-action="Index" >Volver</a>
+    </div>
+</div>

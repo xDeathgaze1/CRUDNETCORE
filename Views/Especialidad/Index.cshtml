@@ -1,0 +1,59 @@
+@model IEnumerable<Turnos.Models.Especialidad> 
+@*Se define IEnumerable para que recorra todos los registros y los pueda mostrar*@
+@*No es necesario poner el esqueleto de Html pues el Layout , ya lo hace , entonces solo pon lo que necesitas en este caso solo la tabla
+    esto es por que si pones todo el codigo head.body , html estarias redundando
+*@
+
+    <div class="content">
+            <div>
+                <a class="btn btn-success float-right" asp-action="Create">
+                    + Alta Nueva Especialidad
+                    <!-- <img src="~/Img/plus.png" width="45px" height="45px" >
+                    -->
+                 </a>
+                 
+    </div>
+            
+            
+    </div>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                         @* @Html.DisplayNameFor(model => model.descripcion) <!-- CON ESTO SOLO OBTENEMOS EL NOMBRE DE LA COLUMNA DE LA TABLA BBDDS-->
+                        *@
+                               Descripción
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @*Esto es codigo para comentar en este cshtml*@
+                        @*Aqui cologamos registros de BBDD*@
+                      
+                        @foreach (var item in Model)//model se define arriba, en este caso "especialidad"  <!--TEAMO BOOTSRAP->
+                        {
+                            <tr>
+                                <td>
+
+                                    @Html.DisplayFor(modelItem => item.descripcion)
+
+                                </td>
+                                <td>
+                                   
+                                    <a class="" asp-action="Edit" asp-route-id="@item.idEspecialidad">
+                                        <img src="~/Img/edit.png" width="45px" height="45px" >
+                                    </a> @*este boton es para editar*@
+                                </td>
+                                 <td>
+                                    
+                                    <a class="" asp-action="Delete" asp-route-id="@item.idEspecialidad">
+                                        <img src="~/Img/remove.png" width="45px" height="45px" >
+                                    </a> @*este boton es para eliminar*@
+                                </td>
+
+                            </tr>
+                        }
+                      
+                </tbody>
+            </table>
