@@ -189,7 +189,7 @@ namespace Turnos.Controllers
             await _context.SaveChangesAsync();
             //en la var medico , hara lo mismo hara un select y guardara ese registro encontrado apartir de la id
             var medico = await _context.Medico.FindAsync(id);
-            //elimina ese registro
+            //elimina ese registros
             _context.Medico.Remove(medico);
             await _context.SaveChangesAsync();
 
