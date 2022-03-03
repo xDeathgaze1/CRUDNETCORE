@@ -181,12 +181,15 @@ namespace Turnos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {   
+            //en la var medicoEs estara guardado el registro que encuentre apartir de la id que el formulario mande por post
             var medicoEspecialidad = await _context.MedicoEspecialidad
             .FirstAsync(me => me.idMedico == id);
+            //despues se accede a la base de datos para que esta haga un DELETE y asi elimine el registro
             _context.MedicoEspecialidad.Remove(medicoEspecialidad);
             await _context.SaveChangesAsync();
-
+            //en la var medico , hara lo mismo hara un select y guardara ese registro encontrado apartir de la id
             var medico = await _context.Medico.FindAsync(id);
+            //elimina ese registro
             _context.Medico.Remove(medico);
             await _context.SaveChangesAsync();
 
